@@ -1,0 +1,46 @@
+<!DOCTYPE html><html>
+<head>
+  <meta charset="utf-8">
+  <title>Kanirobocon Course VR</title>
+  <meta property="og:title" content="Kanirobocon Course VR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image"  content="https://fkpc.github.io/kanirobovr/ss.png">
+  <meta name="twitter:image" content="https://fkpc.github.io/kanirobovr/ss.png">
+  <script src="https://aframe.io/releases/1.1.0/aframe.js"></script>
+  <!-- https://github.com/supermedium/aframe-environment-component -->
+  <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+  <!-- https://github.com/fernandojsg/aframe-teleport-controls -->
+  <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
+</head>
+<body>
+
+<a-scene id="scene">
+  <a-entity light="type:directional; castShadow:true;" position="1 1 1"></a-entity>
+  <!-- default, contact, egypt, checkerboard, forest, goaland, yavapai, goldmine, threetowers, poison, arches, tron, japan, dream, volcano, starry, osiris -->
+  <a-entity id="environment" environment="preset:arches"></a-entity>
+
+  <!--
+  <a-gltf-model src="url(./assets/hall/model.gltf)" position="-0.5 0 2" scale="3 3 3" rotation="0 270 0"></a-gltf-model>
+  -->
+  <a-entity position="0 0 -2">
+    <a-plane color="white" src="assets/kanirobo/kanirobo.outline_mini.png" width="3.6" height="3.6" position="0 .7 0" rotation="-90 0 0">
+    </a-plane>
+    <a-box color="#555" position="0 .725 -1.25" depth=".8" height=".05" width=".1"></a-box>
+    <a-sphere color="red" position="0 .770 -1.25" radius=".02"></a-sphere>
+    <a-sphere color="gray" position="0.44 .72 -1.55" radius=".02"></a-sphere>
+    <a-sphere color="gray" position="-0.44 .72 -1.55" radius=".02"></a-sphere>
+    <a-sphere color="gray" position="0.4 .72 -1.55" radius=".02"></a-sphere>
+    <a-sphere color="gray" position="-0.4 .72 -1.55" radius=".02"></a-sphere>
+    <a-sphere color="gray" position="0.4 .72 -0.95" radius=".02"></a-sphere>
+    <a-sphere color="gray" position="-0.4 .72 -0.95" radius=".02"></a-sphere>
+  </a-entity>
+
+  <a-entity id="cameraRig">
+    <a-entity id="head" camera position="0 1 0" wasd-controls look-controls></a-entity>
+    <a-entity oculus-touch-controls="hand:left" teleport-controls="button:trigger; collisionEntities:.collidable; cameraRig:#cameraRig; teleportOrigin:#head;"></a-entity>
+    <a-entity oculus-touch-controls="hand:right" teleport-controls="button:trigger; collisionEntities:.collidable; cameraRig:#cameraRig; teleportOrigin:#head;"></a-entity>
+  </a-entity>
+</a-scene>
+
+</body>
+</html>
